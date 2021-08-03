@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-
+import ImageItem from './ImageItem.js';
 class ImageList extends Component {
     
     render() { 
         return ( 
-            <select>
-                <option value='red'>RED</option>
-                <option valur='blue'>Blue</option>
-                <option value='green'>Green</option>
-            </select>
+           <>
+           {this.props.images.map((item) => {
 
+                return <ImageItem key={item.keyword} image={item} />
 
+           })}; 
+           </>
 
          );
     }
