@@ -5,11 +5,11 @@ class ImageList extends Component {
     render() { 
         return ( 
            <>
-           {this.props.images.map((item) => {
+           {this.props.images.map((item, index) => {
 
-                return <ImageItem key={item.keyword} image={item} />
+                return <ImageItem key={index} image={item} />
 
-           })}; 
+           })} 
            </>
 
          );

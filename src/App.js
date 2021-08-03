@@ -8,14 +8,14 @@ console.log(images);
 
 class App extends Component {
   state = {
-      title: 'All',
+      keyword: 'All',
   };
   handleChange = (event) => {
-      this.setState({ title: event.target.value });
+      this.setState({ keyword: event.target.value });
   };
   render() {
       const filteredCreatures = images.filter(
-          (item) => this.state.title === 'All' || item.title === this.state.title
+          (item) => this.state.keyword === 'All' || item.keyword=== this.state.keyword
       );
 
       return (
