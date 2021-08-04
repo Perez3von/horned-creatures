@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import ImageItem from './ImageItem.js';
 import ImageList from './ImageList.js';
 import images from './data/data.js';
 console.log(images);
@@ -10,6 +9,12 @@ class App extends Component {
   state = {
       keyword: 'All',
   };
+  creatures= [];
+  
+  horns = [];
+
+
+
   handleChange = (event) => {
       this.setState({ keyword: event.target.value });
   };
