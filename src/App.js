@@ -1,44 +1,43 @@
 import React, { Component } from 'react';
 import './App.css';
-import ImageItem from './ImageItem.js';
 import ImageList from './ImageList.js';
 import images from './data/data.js';
+import Dropdown from './Dropdown';
 console.log(images);
 
 
 class App extends Component {
   state = {
       keyword: 'All',
+      horns: 'All'
   };
+  options = ['All', 'narwhal', 'rhino', 'unicorn', 'unilego', 'triceratops', 'markhor', 'mouflon', 'addax', 'chameleon', 'lizard', 'dragon' ];
+  hornsNum = ['All', '1', '2', '3', '100'];
+
   handleChange = (event) => {
       this.setState({ keyword: event.target.value });
   };
+  handleChangeHorns = (event) => {
+    const numOfHorns = event.target.value; 
+    this.setState({ horns: numOfHorns });
+};
   render() {
       const filteredCreatures = images.filter(
           (item) => this.state.keyword === 'All' || item.keyword=== this.state.keyword
       );
+      const filteredHorns = filteredCreatures.filter(
+        (horn) => this.state.horns === 'All' || horn.horns=== Number(this.state.horns)
+    );
 
       return (
-          <div className="App">
-              <h1>Horned Creatures</h1>
-              <select onChange={this.handleChange}>
-                  <option value="All">All</option>
-                  <option value="rhino">rhino</option>
-                  <option value="lizard">lizard</option>
-                  <option value="dragon">dragon</option>
-                  <option value="chameleon">chameleon</option>
-                  <option value="mouflon">mouflon</option>
-                  <option value="addax">addax</option>
-                  <option value="markhor">markhor</option>
-                  <option value="unicorn">unicorn</option>
-                  <option value="triceratops">triceratops</option>
-                  <option value="unilego">unilego</option>
-              </select>
-              <ImageList
-                  
-                  images={filteredCreatures}
+        <>
+          <Dropdown options = { this.options} changeEvent = {this.handleChange} />
+          <Dropdown options = { this.hornsNum} changeEvent = {this.handleChangeHorns} />
+          <ImageList
+        
+                  images={filteredHorns}
               />
-          </div>
+        </>
       );
   }
 }
