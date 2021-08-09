@@ -3,11 +3,12 @@ import ImageItem from './ImageItem.js';
 class ImageList extends Component {
     
     render() { 
-        const {hornsNum} = this.props;
+        const {arrayC} = this.props;
         return ( 
            <>
-           {hornsNum.map((item) => {
+           {arrayC.map((item) => {
                const {name, url} = item;
+               console.log(arrayC)
                 return <ImageItem key={item.id} url= {url} name = {name}  />
 
            })} 

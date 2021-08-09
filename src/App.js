@@ -3,7 +3,7 @@ import './App.css';
 import ImageList from './ImageList.js';
 import images from './data/data.js';
 import Dropdown from './Dropdown';
-console.log(images);
+
 
 
 class App extends Component {
@@ -28,6 +28,7 @@ class App extends Component {
       const filteredHorns = filteredCreatures.filter(
         (horn) => this.state.horns === 'All' || horn.horns=== Number(this.state.horns)
     );
+    
 
       return (
         <>
@@ -35,7 +36,7 @@ class App extends Component {
           <Dropdown options = { this.hornsNum} changeEvent = {this.handleChangeHorns} />
           <ImageList
         
-                  images={filteredHorns}
+                  arrayC = {filteredHorns}
               />
         </>
       );
